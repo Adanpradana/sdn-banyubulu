@@ -1,26 +1,85 @@
 @import "tailwindcss";
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
-}
-
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+@layer base {
+  html {
+    scroll-behavior: smooth;
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
   }
 }
 
+:root {
+  --background: #FAF9F5;
+  --foreground: #26332E;
+  --primary-green: #167A5B;
+  --primary-green-dark: #126349;
+  --soft-mint: #DDF3E9;
+  --warm-yellow: #F4C95D;
+  --warm-orange: #E89B5A;
+  --muted-text: #68756F;
+}
+
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  background-color: #FAF9F5;
+  color: #26332E;
+  overflow-x: hidden;
+}
+
+/* Custom Scrollbar for Warm Palette */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: #FAF9F5;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #C4D6CD;
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #167A5B;
+}
+
+/* Minimalist Warm Card Utilities - Warm School Design */
+.minimal-card {
+  background-color: #FFFFFF;
+  border: 1px solid #E2ECE7;
+  border-radius: 1rem;
+}
+
+.minimal-card-hover {
+  transition: transform 0.25s cubic-bezier(0.16, 1, 0.3, 1), border-color 0.25s ease, box-shadow 0.25s ease;
+}
+
+.minimal-card-hover:hover {
+  border-color: #167A5B;
+  box-shadow: 0 10px 25px -5px rgba(22, 122, 91, 0.08);
+  transform: translateY(-2px);
+}
+
+.minimal-nav {
+  background-color: #FAF9F5;
+  border-bottom: 1px solid #E2ECE7;
+}
+
+.gradient-text-emerald {
+  color: #167A5B;
+}
+
+.gradient-text-gold {
+  color: #D97706;
+}
+
+/* Accessibility: Respect prefers-reduced-motion */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  ::before,
+  ::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
 }
