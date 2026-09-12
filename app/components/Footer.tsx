@@ -36,7 +36,7 @@ export default function Footer() {
             <div className="space-y-2 text-xs text-[#E2ECE7] pt-1">
               <div className="flex items-start gap-2.5">
                 <MapPin className="w-4 h-4 text-[#F4C95D] flex-shrink-0 mt-0.5" />
-                <span>Jl. Utama No. 88, Kembangan, Jakarta Barat 11610</span>
+                <span>Jl. Raya Banyubulu Kecamatan Proppo Kabupaten Pamekasan</span>
               </div>
               <div className="flex items-center gap-2.5">
                 <Phone className="w-4 h-4 text-[#F4C95D] flex-shrink-0" />
