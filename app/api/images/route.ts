@@ -6,6 +6,7 @@ cloudinary.config({
   api_key: process.env.CLOUDINARY_API_KEY,
   api_secret: process.env.CLOUDINARY_API_SECRET,
 });
+
 type CloudinaryImage = {
   public_id: string;
   secure_url: string;
@@ -22,21 +23,27 @@ export async function GET() {
       max_results: 100,
     });
 
-    const images = result.resources.map((image: CloudinaryImage) => ({
-      publicId: image.public_id,
-      url: image.secure_url,
-      width: image.width,
-      height: image.height,
-      format: image.format,
-    }));
+    const images = (result.resources as CloudinaryImage[])
+      .filter((image) => image.public_id !== "main-sample")
+      .map((image) => ({
+        publicId: image.public_id,
+        url: image.secure_url,
+        width: image.width,
+        height: image.height,
+        format: image.format,
+      }));
 
     return NextResponse.json(images);
   } catch (error) {
-    console.error(error);
+    console.error("Cloudinary error:", error);
 
     return NextResponse.json(
-      { error: "Failed to fetch images" },
-      { status: 500 },
+      {
+        error: "Failed to fetch images",
+      },
+      {
+        status: 500,
+      },
     );
   }
 }

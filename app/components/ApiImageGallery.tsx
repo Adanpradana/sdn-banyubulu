@@ -113,7 +113,7 @@ export default function ApiImageGallery() {
   };
 
   useEffect(() => {
-    fetchImages();
+    await fetchImages();
   }, []);
 
   // Formats available in fetched images

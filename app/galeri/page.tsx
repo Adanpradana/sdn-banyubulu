@@ -29,7 +29,6 @@ export default function GaleriPage() {
         </div>
       </section>
 
-      {/* Cloudinary Live Image Gallery from /api/images */}
       <ApiImageGallery />
 
       {/* Kegiatan Gallery Section */}
@@ -39,4 +38,3 @@ export default function GaleriPage() {
     </main>
   );
 }
-
